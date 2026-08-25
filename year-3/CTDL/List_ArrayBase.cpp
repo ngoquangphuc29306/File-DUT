@@ -16,12 +16,12 @@ struct ElementType {
 };
 
 struct ListInfo {
-    ElementType *theArray;
+    ElementType* theArray;
     int capacity;
     int count;
 };
 
-typedef ListInfo *List;
+typedef ListInfo* List;
 typedef int Position;
 
 List createList(int capacity) {
@@ -68,6 +68,15 @@ void listDisplay(List L) {
     }
 }
 
+bool Find(List L, string name){
+	for(int i = 0; i < L->count; i++){
+		if(L->theArray[i].name == name){
+			return true;
+		}
+	}
+	return false;
+}
+
 void freeList(List &L) {
     if (L != nullptr) {
         delete[] L->theArray;
@@ -77,7 +86,7 @@ void freeList(List &L) {
 }
 
 int main() {
-	fast()
+	faster()
     List L = createList(10);
     ElementType e1 = {100, "Nguyen Van A"};
     ElementType e2 = {101, "Nguyen Van B"};
@@ -89,6 +98,10 @@ int main() {
     listInsert(L, e3, 2);
     listInsert(L, e4, 3);
     listDisplay(L);
+    
+    cout << endl;
+    if(Find(L, "Nguyen Van E")) cout << "Da tim thay!" << endl;
+    else cout << "Khong tim thay!" << endl;
 
     listDelete(L, 2);
     cout << "The List after deleting:\n";

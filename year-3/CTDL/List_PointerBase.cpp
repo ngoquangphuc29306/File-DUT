@@ -20,8 +20,8 @@ struct Node {
     Node *next;
 };
 
-typedef Node *List;
-typedef Node *Position;
+typedef Node* List;
+typedef Node* Position;
 
 void insert(List &L, ElementType e, Position p) {
     Position newItem = new Node();
